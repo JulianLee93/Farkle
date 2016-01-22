@@ -8,9 +8,12 @@
 
 #import "PlayerViewController.h"
 #import "Player.h"
+#import "PlayerTableViewCell.h"
+#import "AddPlayerTableViewCell.h"
 
-@interface PlayerViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface PlayerViewController () <UITableViewDelegate, UITableViewDataSource, AddPlayerTableViewCellDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *playersArray;
 
 @end
@@ -33,15 +36,17 @@
 
     if (indexPath.row >= self.playersArray.count)
     {
-        UITableViewCell *addPlayerCell = [tableView dequeueReusableCellWithIdentifier:@"AddPlayer"];
-        addPlayerCell.textLabel.text = [NSString stringWithFormat:@"+"];
+        AddPlayerTableViewCell *addPlayerCell = [tableView dequeueReusableCellWithIdentifier:@"AddPlayer"];
+        addPlayerCell.AddPlayerTextField.text = @"";
+        addPlayerCell.delegate = self;
         return addPlayerCell;
     }
     else
     {
-        UITableViewCell *currentPlayerCell = [tableView dequeueReusableCellWithIdentifier:@"CurrentPlayer"];
+        PlayerTableViewCell *currentPlayerCell = [tableView dequeueReusableCellWithIdentifier:@"CurrentPlayer"];
         Player *currentPlayer = [self.playersArray objectAtIndex:indexPath.row];
-        currentPlayerCell.textLabel.text = currentPlayer.name;
+        currentPlayerCell.playerNameTextField.text = currentPlayer.name;
+//        currentPlayerCell. = currentPlayer.name;
         return currentPlayerCell;
     }
 }
@@ -49,9 +54,17 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return 3;
+    return self.playersArray.count + 1;
 }
 
+
+#pragma mark - PlayerTableViewCell
+- (void)onAddPlayerButtonTapped:(UIButton *)sender playerName:(NSString *)name
+{
+    Player *newPlayer = [[Player alloc] initWithName:name];
+    [self.playersArray addObject:newPlayer];
+    [self.tableView reloadData];
+}
 
 
 
