@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SplashViewController.h
 //  Farkle
 //
 //  Created by Julian Lee on 1/21/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface SplashViewController : UIViewController
 
 @end
-

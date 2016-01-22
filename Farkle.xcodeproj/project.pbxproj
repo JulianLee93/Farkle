@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		B90414091C51A58200565A2A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B90414081C51A58200565A2A /* main.m */; };
 		B904140C1C51A58200565A2A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B904140B1C51A58200565A2A /* AppDelegate.m */; };
-		B904140F1C51A58200565A2A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B904140E1C51A58200565A2A /* ViewController.m */; };
 		B90414121C51A58200565A2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B90414101C51A58200565A2A /* Main.storyboard */; };
 		B90414141C51A58200565A2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B90414131C51A58200565A2A /* Assets.xcassets */; };
 		B90414171C51A58200565A2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B90414151C51A58200565A2A /* LaunchScreen.storyboard */; };
+		B90414231C51A61500565A2A /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B90414221C51A61500565A2A /* PlayerViewController.m */; };
+		B90414261C51A62B00565A2A /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B90414251C51A62B00565A2A /* SplashViewController.m */; };
+		B90414291C51A64000565A2A /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B90414281C51A64000565A2A /* GameViewController.m */; };
+		B904142C1C51A92000565A2A /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = B904142B1C51A92000565A2A /* Player.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +23,18 @@
 		B90414081C51A58200565A2A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B904140A1C51A58200565A2A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B904140B1C51A58200565A2A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B904140D1C51A58200565A2A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B904140E1C51A58200565A2A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B90414111C51A58200565A2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B90414131C51A58200565A2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B90414161C51A58200565A2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B90414181C51A58200565A2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B90414211C51A61500565A2A /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		B90414221C51A61500565A2A /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		B90414241C51A62B00565A2A /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplashViewController.h; path = ../SplashViewController.h; sourceTree = "<group>"; };
+		B90414251C51A62B00565A2A /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplashViewController.m; path = ../SplashViewController.m; sourceTree = "<group>"; };
+		B90414271C51A64000565A2A /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		B90414281C51A64000565A2A /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		B904142A1C51A92000565A2A /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		B904142B1C51A92000565A2A /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +67,15 @@
 		B90414061C51A58200565A2A /* Farkle */ = {
 			isa = PBXGroup;
 			children = (
-				B904140A1C51A58200565A2A /* AppDelegate.h */,
-				B904140B1C51A58200565A2A /* AppDelegate.m */,
-				B904140D1C51A58200565A2A /* ViewController.h */,
-				B904140E1C51A58200565A2A /* ViewController.m */,
 				B90414101C51A58200565A2A /* Main.storyboard */,
+				B90414271C51A64000565A2A /* GameViewController.h */,
+				B90414281C51A64000565A2A /* GameViewController.m */,
+				B90414211C51A61500565A2A /* PlayerViewController.h */,
+				B90414221C51A61500565A2A /* PlayerViewController.m */,
+				B90414241C51A62B00565A2A /* SplashViewController.h */,
+				B90414251C51A62B00565A2A /* SplashViewController.m */,
+				B904142A1C51A92000565A2A /* Player.h */,
+				B904142B1C51A92000565A2A /* Player.m */,
 				B90414131C51A58200565A2A /* Assets.xcassets */,
 				B90414151C51A58200565A2A /* LaunchScreen.storyboard */,
 				B90414181C51A58200565A2A /* Info.plist */,
@@ -74,6 +87,8 @@
 		B90414071C51A58200565A2A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B904140A1C51A58200565A2A /* AppDelegate.h */,
+				B904140B1C51A58200565A2A /* AppDelegate.m */,
 				B90414081C51A58200565A2A /* main.m */,
 			);
 			name = "Supporting Files";
@@ -149,9 +164,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B904140F1C51A58200565A2A /* ViewController.m in Sources */,
+				B90414291C51A64000565A2A /* GameViewController.m in Sources */,
 				B904140C1C51A58200565A2A /* AppDelegate.m in Sources */,
+				B90414231C51A61500565A2A /* PlayerViewController.m in Sources */,
 				B90414091C51A58200565A2A /* main.m in Sources */,
+				B904142C1C51A92000565A2A /* Player.m in Sources */,
+				B90414261C51A62B00565A2A /* SplashViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
