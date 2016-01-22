@@ -57,6 +57,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1f-OX-kV2">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="7MJ-qe-HXi"/>
+                                    <constraint firstAttribute="height" constant="30" id="a54-SQ-19g"/>
+                                </constraints>
+                                <state key="normal" title="Go"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7MJ-qe-HXi"/>
+                                        <exclude reference="a54-SQ-19g"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="7MJ-qe-HXi"/>
+                                        <include reference="a54-SQ-19g"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="onGoButtonTapped:" destination="TaF-Hr-F2d" eventType="touchUpInside" id="TSd-R8-ozQ"/>
+                                    <segue destination="pQW-cR-E6Z" kind="show" id="PNr-IK-YXJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOf-Kr-DSO">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Lmf-X7-hEs"/>
+                                    <constraint firstAttribute="width" constant="30" id="VK5-9j-Mu1"/>
+                                </constraints>
+                                <state key="normal" title="?"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Lmf-X7-hEs"/>
+                                        <exclude reference="VK5-9j-Mu1"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Lmf-X7-hEs"/>
+                                        <include reference="VK5-9j-Mu1"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Players" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4J-fH-FA7">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Udi-1M-ZTV"/>
+                                    <constraint firstAttribute="width" constant="108" id="rpC-2H-Gpz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Udi-1M-ZTV"/>
+                                        <exclude reference="rpC-2H-Gpz"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Udi-1M-ZTV"/>
+                                        <include reference="rpC-2H-Gpz"/>
+                                    </mask>
+                                </variation>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hUM-kv-9a8">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="538"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -206,76 +272,14 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="49" width="400" height="480"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="TaF-Hr-F2d" id="z3T-fq-C2b"/>
                                     <outlet property="delegate" destination="TaF-Hr-F2d" id="1Ya-vi-Muw"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOf-Kr-DSO">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Lmf-X7-hEs"/>
-                                    <constraint firstAttribute="width" constant="30" id="VK5-9j-Mu1"/>
-                                </constraints>
-                                <state key="normal" title="?"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Lmf-X7-hEs"/>
-                                        <exclude reference="VK5-9j-Mu1"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="Lmf-X7-hEs"/>
-                                        <include reference="VK5-9j-Mu1"/>
-                                    </mask>
-                                </variation>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Players" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4J-fH-FA7">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="Udi-1M-ZTV"/>
-                                    <constraint firstAttribute="width" constant="108" id="rpC-2H-Gpz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Udi-1M-ZTV"/>
-                                        <exclude reference="rpC-2H-Gpz"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="Udi-1M-ZTV"/>
-                                        <include reference="rpC-2H-Gpz"/>
-                                    </mask>
-                                </variation>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1f-OX-kV2">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="7MJ-qe-HXi"/>
-                                    <constraint firstAttribute="height" constant="30" id="a54-SQ-19g"/>
-                                </constraints>
-                                <state key="normal" title="Go"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="7MJ-qe-HXi"/>
-                                        <exclude reference="a54-SQ-19g"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="7MJ-qe-HXi"/>
-                                        <include reference="a54-SQ-19g"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <segue destination="pQW-cR-E6Z" kind="show" id="PNr-IK-YXJ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -292,9 +296,9 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="O1f-OX-kV2"/>
                                 <exclude reference="yOf-Kr-DSO"/>
                                 <exclude reference="A4J-fH-FA7"/>
-                                <exclude reference="O1f-OX-kV2"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="2kn-5O-Iau"/>
@@ -311,9 +315,9 @@
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
+                                <include reference="O1f-OX-kV2"/>
                                 <include reference="yOf-Kr-DSO"/>
                                 <include reference="A4J-fH-FA7"/>
-                                <include reference="O1f-OX-kV2"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="2kn-5O-Iau"/>

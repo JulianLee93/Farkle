@@ -8,10 +8,14 @@
 
 #import "PlayerTableViewCell.h"
 
+@interface PlayerTableViewCell () <UITextFieldDelegate>
+
+@end
+
 @implementation PlayerTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    self.playerNameTextField.delegate = self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -19,5 +23,19 @@
 
     // Configure the view for the selected state
 }
+
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSString *updatedName = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    [self.delegate PlayerTableViewCellDelegate:self updatedName:updatedName];
+    
+    return YES;
+    
+}
+
+
+
+
 
 @end

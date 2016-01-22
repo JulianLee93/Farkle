@@ -11,7 +11,7 @@
 #import "PlayerTableViewCell.h"
 #import "AddPlayerTableViewCell.h"
 
-@interface PlayerViewController () <UITableViewDelegate, UITableViewDataSource, AddPlayerTableViewCellDelegate>
+@interface PlayerViewController () <UITableViewDelegate, UITableViewDataSource, AddPlayerTableViewCellDelegate, UITextFieldDelegate, PlayerTableViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *playersArray;
@@ -46,6 +46,7 @@
         PlayerTableViewCell *currentPlayerCell = [tableView dequeueReusableCellWithIdentifier:@"CurrentPlayer"];
         Player *currentPlayer = [self.playersArray objectAtIndex:indexPath.row];
         currentPlayerCell.playerNameTextField.text = currentPlayer.name;
+        currentPlayerCell.delegate = self;
 //        currentPlayerCell. = currentPlayer.name;
         return currentPlayerCell;
     }
@@ -57,6 +58,9 @@
     return self.playersArray.count + 1;
 }
 
+- (IBAction)onGoButtonTapped:(UIButton *)sender {
+    
+}
 
 #pragma mark - PlayerTableViewCell
 - (void)onAddPlayerButtonTapped:(UIButton *)sender playerName:(NSString *)name
@@ -66,7 +70,13 @@
     [self.tableView reloadData];
 }
 
+- (void)PlayerTableViewCellDelegate:(id)cell updatedName:(NSString *)name
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    Player *currentPlayer = [self.playersArray objectAtIndex:indexPath.row];
+    currentPlayer.name = name;
 
+}
 
 
 
