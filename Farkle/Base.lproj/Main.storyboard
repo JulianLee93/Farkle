@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -123,14 +124,15 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hUM-kv-9a8">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hUM-kv-9a8">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="538"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrentPlayer" rowHeight="68" id="lOF-Mp-UKd" customClass="PlayerTableViewCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lOF-Mp-UKd" id="SG8-Kp-XcG">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="67.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PlayerNameTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cKB-k0-7fN">
@@ -183,9 +185,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddPlayer" rowHeight="69" id="TlX-3y-yZP" customClass="AddPlayerTableViewCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="96" width="600" height="69"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TlX-3y-yZP" id="Uaz-yJ-2pP">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="68.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbv-Da-hTn">
@@ -248,10 +251,10 @@
                                                     <exclude reference="UnO-pI-cL4"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="MMe-xD-f5I"/>
                                                     <exclude reference="Pi2-JS-DU2"/>
                                                     <exclude reference="dg0-lD-vJt"/>
                                                     <exclude reference="eXB-Bj-wwu"/>
+                                                    <exclude reference="MMe-xD-f5I"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -260,10 +263,10 @@
                                                     <include reference="UnO-pI-cL4"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="MMe-xD-f5I"/>
                                                     <include reference="Pi2-JS-DU2"/>
                                                     <include reference="dg0-lD-vJt"/>
                                                     <include reference="eXB-Bj-wwu"/>
+                                                    <include reference="MMe-xD-f5I"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -301,16 +304,16 @@
                                 <exclude reference="A4J-fH-FA7"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="XVF-fD-1hL"/>
+                                <exclude reference="UPX-Qo-F4F"/>
+                                <exclude reference="YaX-9V-eFw"/>
                                 <exclude reference="2kn-5O-Iau"/>
                                 <exclude reference="Pg4-QK-gFl"/>
+                                <exclude reference="7jN-WJ-Sid"/>
+                                <exclude reference="rm7-19-WYG"/>
                                 <exclude reference="W1Y-K6-Unx"/>
                                 <exclude reference="jhY-Yp-OtS"/>
                                 <exclude reference="pSy-kL-46t"/>
-                                <exclude reference="7jN-WJ-Sid"/>
-                                <exclude reference="rm7-19-WYG"/>
-                                <exclude reference="UPX-Qo-F4F"/>
-                                <exclude reference="YaX-9V-eFw"/>
-                                <exclude reference="XVF-fD-1hL"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -320,16 +323,16 @@
                                 <include reference="A4J-fH-FA7"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="XVF-fD-1hL"/>
+                                <include reference="UPX-Qo-F4F"/>
+                                <include reference="YaX-9V-eFw"/>
                                 <include reference="2kn-5O-Iau"/>
                                 <include reference="Pg4-QK-gFl"/>
+                                <include reference="7jN-WJ-Sid"/>
+                                <include reference="rm7-19-WYG"/>
                                 <include reference="W1Y-K6-Unx"/>
                                 <include reference="jhY-Yp-OtS"/>
                                 <include reference="pSy-kL-46t"/>
-                                <include reference="7jN-WJ-Sid"/>
-                                <include reference="rm7-19-WYG"/>
-                                <include reference="UPX-Qo-F4F"/>
-                                <include reference="YaX-9V-eFw"/>
-                                <include reference="XVF-fD-1hL"/>
                             </mask>
                         </variation>
                     </view>
@@ -360,14 +363,15 @@
                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                 </variation>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dA0-UQ-UYQ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dA0-UQ-UYQ">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Ywm-QU-ivy">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GamePlayerCell" id="Ywm-QU-ivy">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ywm-QU-ivy" id="SIH-KW-Zgz">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -375,6 +379,10 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="20" y="410" width="122" height="182"/>
                                 </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="pQW-cR-E6Z" id="vZU-5J-96U"/>
+                                    <outlet property="delegate" destination="pQW-cR-E6Z" id="CEz-DB-DS8"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cY3-35-chx">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -429,6 +437,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="gameTableView" destination="dA0-UQ-UYQ" id="6SU-8h-089"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RXk-EP-mff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

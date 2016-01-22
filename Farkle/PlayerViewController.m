@@ -10,11 +10,13 @@
 #import "Player.h"
 #import "PlayerTableViewCell.h"
 #import "AddPlayerTableViewCell.h"
+#import "GameViewController.h"
 
 @interface PlayerViewController () <UITableViewDelegate, UITableViewDataSource, AddPlayerTableViewCellDelegate, UITextFieldDelegate, PlayerTableViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *playersArray;
+
 
 @end
 
@@ -32,7 +34,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%li", (long)indexPath.row);
 
     if (indexPath.row >= self.playersArray.count)
     {
@@ -47,7 +48,6 @@
         Player *currentPlayer = [self.playersArray objectAtIndex:indexPath.row];
         currentPlayerCell.playerNameTextField.text = currentPlayer.name;
         currentPlayerCell.delegate = self;
-//        currentPlayerCell. = currentPlayer.name;
         return currentPlayerCell;
     }
 }
@@ -65,9 +65,18 @@
 #pragma mark - PlayerTableViewCell
 - (void)onAddPlayerButtonTapped:(UIButton *)sender playerName:(NSString *)name
 {
-    Player *newPlayer = [[Player alloc] initWithName:name];
-    [self.playersArray addObject:newPlayer];
-    [self.tableView reloadData];
+    if (self.playersArray.count < 6) {
+        Player *newPlayer = [[Player alloc] initWithName:name];
+        [self.playersArray addObject:newPlayer];
+        [self.tableView reloadData];
+    }else {
+        [self.tableView reloadData];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Sorry!" message:@"Exceeded max number of players" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+    }
 }
 
 - (void)PlayerTableViewCellDelegate:(id)cell updatedName:(NSString *)name
@@ -80,14 +89,13 @@
 
 
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    GameViewController *destination = segue.destinationViewController;
+    destination.playersArray = self.playersArray;
 }
-*/
+
 
 @end

@@ -7,8 +7,11 @@
 //
 
 #import "GameViewController.h"
+#import "Player.h"
 
-@interface GameViewController ()
+@interface GameViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *gameTableView;
 
 @end
 
@@ -21,17 +24,17 @@
 }
 
 
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *playerCell = [tableView dequeueReusableCellWithIdentifier:@"GamePlayerCell"];
+    playerCell.textLabel.text = [[self.playersArray objectAtIndex:indexPath.row] name];
+    return playerCell;
 }
-*/
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.playersArray.count;
+}
+
+
+
 
 @end
