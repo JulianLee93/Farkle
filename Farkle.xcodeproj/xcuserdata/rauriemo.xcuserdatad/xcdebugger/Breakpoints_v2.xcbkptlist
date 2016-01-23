@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Farkle/GameViewController.m"
-            timestampString = "475227021.45018"
+            filePath = "Farkle/GameController.m"
+            timestampString = "475286333.25184"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "-onImageViewTapped:"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "-selectDice:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -23,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *d5;
 @property (weak, nonatomic) IBOutlet UIImageView *d6;
 
-
+@property (nonatomic, weak) UIDynamicAnimator *animator;
 
 @property NSMutableArray *diceButtonsArray;
 
@@ -71,7 +71,8 @@
 
 - (IBAction)onImageViewTapped:(UITapGestureRecognizer *)sender {
     
-    NSLog(@"%d", sender.view.tag);
+//    NSLog(@"%d", sender.view.tag);
+    [self.game selectDice:(NSInteger *)sender.view.tag];
     
 }
 

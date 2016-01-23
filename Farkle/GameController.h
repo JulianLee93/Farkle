@@ -28,5 +28,6 @@
 @property NSMutableArray *playersArray;
 
 -(instancetype)initWithPlayerCount:(NSUInteger) playerCount;
+-(void) selectDice:(NSInteger *)diceIndex;
 
 @end
