@@ -36,6 +36,9 @@
     [super viewDidLoad];
     self.game = [[GameController alloc] initWithPlayerCount:self.playersArray.count];
     self.diceButtonsArray = [NSMutableArray arrayWithObjects:self.d1, self.d2, self.d3, self.d4, self.d5, self.d6, nil];
+    for (UIImageView *imageView in self.diceButtonsArray) {
+        imageView.userInteractionEnabled = YES;
+    }
     
 }
 
@@ -60,8 +63,15 @@
         [imageName appendString:@"_dice"];
 
         UIImageView *currentImage = self.diceButtonsArray[i];
+        
         currentImage.image = [UIImage imageNamed:imageName];
     }
+    
+}
+
+- (IBAction)onImageViewTapped:(UITapGestureRecognizer *)sender {
+    
+    NSLog(@"clicked");
     
 }
 

@@ -384,6 +384,9 @@
                                         <variation key="widthClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="65" y="32" width="114" height="104"/>
                                         </variation>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="yAk-eh-yPS" appends="YES" id="42h-s6-yOj"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="MGl-Sr-KEZ">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -391,6 +394,9 @@
                                         <variation key="widthClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="227" y="32" width="114" height="104"/>
                                         </variation>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="oSA-u2-G09" appends="YES" id="F0o-1B-LiN"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="7IE-az-CYK">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -398,6 +404,9 @@
                                         <variation key="widthClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="65" y="149" width="114" height="104"/>
                                         </variation>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="3a8-at-7gh" appends="YES" id="fxX-WN-tLm"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="eWA-b1-6qO">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -405,6 +414,9 @@
                                         <variation key="widthClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="227" y="149" width="114" height="104"/>
                                         </variation>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="vJA-0l-uOS" appends="YES" id="qTM-NU-sPE"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="ELs-Fi-Fcp">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -412,6 +424,9 @@
                                         <variation key="widthClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="65" y="266" width="114" height="104"/>
                                         </variation>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="zRn-nH-7iR" appends="YES" id="7S4-Ms-d6p"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="yYD-D9-LOy">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -419,6 +434,9 @@
                                         <variation key="widthClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="227" y="266" width="114" height="104"/>
                                         </variation>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="5gw-hH-DqV" appends="YES" id="YAk-zA-PLC"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="calibratedWhite"/>
@@ -649,6 +667,36 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RXk-EP-mff" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="yAk-eh-yPS">
+                    <connections>
+                        <action selector="onImageViewTapped:" destination="pQW-cR-E6Z" id="Uj7-4J-uHg"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="oSA-u2-G09">
+                    <connections>
+                        <action selector="onImageViewTapped:" destination="pQW-cR-E6Z" id="Njc-w3-8f8"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="3a8-at-7gh">
+                    <connections>
+                        <action selector="onImageViewTapped:" destination="pQW-cR-E6Z" id="rfF-D8-T34"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="vJA-0l-uOS">
+                    <connections>
+                        <action selector="onImageViewTapped:" destination="pQW-cR-E6Z" id="s1L-XB-nxF"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="zRn-nH-7iR">
+                    <connections>
+                        <action selector="onImageViewTapped:" destination="pQW-cR-E6Z" id="Vmb-NA-qDG"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="5gw-hH-DqV">
+                    <connections>
+                        <action selector="onImageViewTapped:" destination="pQW-cR-E6Z" id="0E2-uE-sna"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="852" y="326"/>
         </scene>
