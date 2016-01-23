@@ -378,7 +378,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wooden_tiles" translatesAutoresizingMaskIntoConstraints="NO" id="0ZO-uu-oOD">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="MwX-Ci-rcg">
+                                    <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="MwX-Ci-rcg">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <gestureRecognizers/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
@@ -388,7 +388,7 @@
                                             <outletCollection property="gestureRecognizers" destination="yAk-eh-yPS" appends="YES" id="42h-s6-yOj"/>
                                         </connections>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="MGl-Sr-KEZ">
+                                    <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="MGl-Sr-KEZ">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <gestureRecognizers/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
@@ -398,7 +398,7 @@
                                             <outletCollection property="gestureRecognizers" destination="oSA-u2-G09" appends="YES" id="F0o-1B-LiN"/>
                                         </connections>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="7IE-az-CYK">
+                                    <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="7IE-az-CYK">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <gestureRecognizers/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
@@ -408,7 +408,7 @@
                                             <outletCollection property="gestureRecognizers" destination="3a8-at-7gh" appends="YES" id="fxX-WN-tLm"/>
                                         </connections>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="eWA-b1-6qO">
+                                    <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="eWA-b1-6qO">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <gestureRecognizers/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
@@ -418,7 +418,7 @@
                                             <outletCollection property="gestureRecognizers" destination="vJA-0l-uOS" appends="YES" id="qTM-NU-sPE"/>
                                         </connections>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="ELs-Fi-Fcp">
+                                    <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="ELs-Fi-Fcp">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <gestureRecognizers/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
@@ -428,7 +428,7 @@
                                             <outletCollection property="gestureRecognizers" destination="zRn-nH-7iR" appends="YES" id="7S4-Ms-d6p"/>
                                         </connections>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="yYD-D9-LOy">
+                                    <imageView userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="yYD-D9-LOy">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <gestureRecognizers/>
                                         <variation key="widthClass=compact" fixedFrame="YES">

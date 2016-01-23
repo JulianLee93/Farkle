@@ -71,7 +71,7 @@
 
 - (IBAction)onImageViewTapped:(UITapGestureRecognizer *)sender {
     
-    NSLog(@"clicked");
+    NSLog(@"%d", sender.view.tag);
     
 }
 
