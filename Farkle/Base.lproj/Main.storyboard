@@ -378,6 +378,48 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wooden_tiles" translatesAutoresizingMaskIntoConstraints="NO" id="0ZO-uu-oOD">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="MwX-Ci-rcg">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <gestureRecognizers/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="65" y="32" width="114" height="104"/>
+                                        </variation>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="MGl-Sr-KEZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <gestureRecognizers/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="227" y="32" width="114" height="104"/>
+                                        </variation>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="7IE-az-CYK">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <gestureRecognizers/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="65" y="149" width="114" height="104"/>
+                                        </variation>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="eWA-b1-6qO">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <gestureRecognizers/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="227" y="149" width="114" height="104"/>
+                                        </variation>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="ELs-Fi-Fcp">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <gestureRecognizers/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="65" y="266" width="114" height="104"/>
+                                        </variation>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="yYD-D9-LOy">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <gestureRecognizers/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="227" y="266" width="114" height="104"/>
+                                        </variation>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -390,6 +432,12 @@
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="0ZO-uu-oOD"/>
+                                        <exclude reference="MwX-Ci-rcg"/>
+                                        <exclude reference="MGl-Sr-KEZ"/>
+                                        <exclude reference="7IE-az-CYK"/>
+                                        <exclude reference="eWA-b1-6qO"/>
+                                        <exclude reference="ELs-Fi-Fcp"/>
+                                        <exclude reference="yYD-D9-LOy"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="CX3-ka-nWd"/>
@@ -402,6 +450,12 @@
                                 <variation key="widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="0ZO-uu-oOD"/>
+                                        <include reference="MwX-Ci-rcg"/>
+                                        <include reference="MGl-Sr-KEZ"/>
+                                        <include reference="7IE-az-CYK"/>
+                                        <include reference="eWA-b1-6qO"/>
+                                        <include reference="ELs-Fi-Fcp"/>
+                                        <include reference="yYD-D9-LOy"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="CX3-ka-nWd"/>
@@ -449,6 +503,9 @@
                                         <include reference="ews-ag-9bg"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="onRollButtonTapped:" destination="pQW-cR-E6Z" eventType="touchUpInside" id="Gmi-WD-UJX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1Q-jS-bz4">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -531,6 +588,14 @@
                                 <exclude reference="met-Y6-leG"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="IUM-Hy-4nA"/>
+                                <exclude reference="jKt-r3-is3"/>
+                                <exclude reference="BPj-zB-ucd"/>
+                                <exclude reference="rGC-1g-me1"/>
+                                <exclude reference="EKR-tQ-YUR"/>
+                                <exclude reference="RNe-mg-PVk"/>
+                                <exclude reference="34i-gj-2VI"/>
+                                <exclude reference="fqy-ek-Rce"/>
                                 <exclude reference="5w2-8s-VFI"/>
                                 <exclude reference="hGd-72-BO3"/>
                                 <exclude reference="pUi-jy-Vfd"/>
@@ -540,14 +605,6 @@
                                 <exclude reference="tnF-Tn-xqk"/>
                                 <exclude reference="hQi-gq-uzZ"/>
                                 <exclude reference="wYt-bb-PI3"/>
-                                <exclude reference="34i-gj-2VI"/>
-                                <exclude reference="fqy-ek-Rce"/>
-                                <exclude reference="BPj-zB-ucd"/>
-                                <exclude reference="rGC-1g-me1"/>
-                                <exclude reference="EKR-tQ-YUR"/>
-                                <exclude reference="RNe-mg-PVk"/>
-                                <exclude reference="IUM-Hy-4nA"/>
-                                <exclude reference="jKt-r3-is3"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -561,6 +618,14 @@
                                 <include reference="met-Y6-leG"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="IUM-Hy-4nA"/>
+                                <include reference="jKt-r3-is3"/>
+                                <include reference="BPj-zB-ucd"/>
+                                <include reference="rGC-1g-me1"/>
+                                <include reference="EKR-tQ-YUR"/>
+                                <include reference="RNe-mg-PVk"/>
+                                <include reference="34i-gj-2VI"/>
+                                <include reference="fqy-ek-Rce"/>
                                 <include reference="5w2-8s-VFI"/>
                                 <include reference="hGd-72-BO3"/>
                                 <include reference="pUi-jy-Vfd"/>
@@ -570,18 +635,16 @@
                                 <include reference="tnF-Tn-xqk"/>
                                 <include reference="hQi-gq-uzZ"/>
                                 <include reference="wYt-bb-PI3"/>
-                                <include reference="34i-gj-2VI"/>
-                                <include reference="fqy-ek-Rce"/>
-                                <include reference="BPj-zB-ucd"/>
-                                <include reference="rGC-1g-me1"/>
-                                <include reference="EKR-tQ-YUR"/>
-                                <include reference="RNe-mg-PVk"/>
-                                <include reference="IUM-Hy-4nA"/>
-                                <include reference="jKt-r3-is3"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="d1" destination="MwX-Ci-rcg" id="5hK-Np-ioW"/>
+                        <outlet property="d2" destination="MGl-Sr-KEZ" id="gfm-Pl-ERK"/>
+                        <outlet property="d3" destination="7IE-az-CYK" id="QLg-Xn-vg6"/>
+                        <outlet property="d4" destination="eWA-b1-6qO" id="EhS-xE-LMW"/>
+                        <outlet property="d5" destination="ELs-Fi-Fcp" id="yjg-V0-VZ4"/>
+                        <outlet property="d6" destination="yYD-D9-LOy" id="rt0-JG-x9g"/>
                         <outlet property="gameTableView" destination="dA0-UQ-UYQ" id="6SU-8h-089"/>
                     </connections>
                 </viewController>
@@ -591,6 +654,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="1_dice" width="300" height="294"/>
         <image name="pirate_wallpaper" width="540" height="960"/>
         <image name="wooden_tiles" width="640" height="1136"/>
     </resources>

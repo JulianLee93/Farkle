@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		327A26431C5306B500D65A49 /* Dice.m in Sources */ = {isa = PBXBuildFile; fileRef = 327A26421C5306B500D65A49 /* Dice.m */; };
+		327A26461C5307F800D65A49 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 327A26451C5307F800D65A49 /* GameController.m */; };
 		B90414091C51A58200565A2A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B90414081C51A58200565A2A /* main.m */; };
 		B904140C1C51A58200565A2A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B904140B1C51A58200565A2A /* AppDelegate.m */; };
 		B90414121C51A58200565A2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B90414101C51A58200565A2A /* Main.storyboard */; };
@@ -21,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		327A26411C5306B500D65A49 /* Dice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dice.h; sourceTree = "<group>"; };
+		327A26421C5306B500D65A49 /* Dice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dice.m; sourceTree = "<group>"; };
+		327A26441C5307F800D65A49 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
+		327A26451C5307F800D65A49 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
 		B90414041C51A58200565A2A /* Farkle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Farkle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B90414081C51A58200565A2A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B904140A1C51A58200565A2A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -114,6 +120,8 @@
 			children = (
 				B90414271C51A64000565A2A /* GameViewController.h */,
 				B90414281C51A64000565A2A /* GameViewController.m */,
+				327A26441C5307F800D65A49 /* GameController.h */,
+				327A26451C5307F800D65A49 /* GameController.m */,
 			);
 			name = "Game Interface";
 			sourceTree = "<group>";
@@ -121,6 +129,8 @@
 		B90414321C51B83500565A2A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				327A26411C5306B500D65A49 /* Dice.h */,
+				327A26421C5306B500D65A49 /* Dice.m */,
 				B904142A1C51A92000565A2A /* Player.h */,
 				B904142B1C51A92000565A2A /* Player.m */,
 			);
@@ -162,6 +172,9 @@
 		B90413FC1C51A58200565A2A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					1,
+				);
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = admin;
 				TargetAttributes = {
@@ -206,8 +219,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				327A26431C5306B500D65A49 /* Dice.m in Sources */,
 				B90414291C51A64000565A2A /* GameViewController.m in Sources */,
 				B904140C1C51A58200565A2A /* AppDelegate.m in Sources */,
+				327A26461C5307F800D65A49 /* GameController.m in Sources */,
 				B904142F1C51B7E600565A2A /* PlayerTableViewCell.m in Sources */,
 				B90414231C51A61500565A2A /* PlayerViewController.m in Sources */,
 				B90414361C51BAF000565A2A /* AddPlayerTableViewCell.m in Sources */,
@@ -362,6 +377,7 @@
 				B904141D1C51A58300565A2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
