@@ -34,6 +34,6 @@
 @property int turnPointTotal;
 
 -(instancetype)initWithPlayerCount:(NSUInteger) playerCount;
--(BOOL) selectDice:(NSInteger *)diceIndex;
+-(BOOL) selectDice:(NSUInteger)diceIndex;
 
 @end

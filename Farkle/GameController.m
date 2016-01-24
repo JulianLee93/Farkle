@@ -40,30 +40,43 @@
     return self;
 }
 
--(BOOL) selectDice:(NSInteger *)diceIndex{
+-(BOOL) selectDice:(NSUInteger)diceIndex{
+    self.selectedPointTotal = 0;
     
-    Dice *selectedDice = [self.allDice objectAtIndex:((int)diceIndex-1)];
+    Dice *selectedDice = [self.allDice objectAtIndex:(diceIndex -1)];
     
     if (selectedDice.selected) {
         [self.diceSelected removeObject:selectedDice];
         [self.diceToBeRolled addObject:selectedDice];
+        selectedDice.selected = NO;
         
     }else {
         [self.diceToBeRolled removeObject:selectedDice];
         [self.diceSelected addObject:selectedDice];
+        selectedDice.selected = YES;
     }
     
-    return [self checkSelectedDice];
+    BOOL validGame = [self checkSelectedDice];
+    
+    for (Dice *dice in self.diceContainer) {
+        [self.diceSelected addObject:dice];
+    }
+    self.diceContainer = [NSMutableArray new];
+    
+    return validGame;
     
 }
 
 -(BOOL) checkSelectedDice{
     
-    NSMutableDictionary *countOfOccurencesDictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:@0, @1, @0, @2, @0, @3, @0, @4, @0, @5, @0, @6, nil];
+    NSMutableDictionary *countOfOccurencesDictionary = [NSMutableDictionary new];
+    countOfOccurencesDictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:@0, @1, @0, @2, @0, @3, @0, @4, @0, @5, @0, @6, nil];
     for (Dice *selectedDice in self.diceSelected) {
         NSNumber *currentOccurenceCount =[countOfOccurencesDictionary objectForKey:selectedDice.currentRoll];
         [countOfOccurencesDictionary setObject:[NSNumber numberWithInt:([currentOccurenceCount intValue] + 1)] forKey:selectedDice.currentRoll];
     }
+    
+    NSLog(@"count of occurences : %@", countOfOccurencesDictionary);
    
     return [self checkForValidGame:countOfOccurencesDictionary];
 }
@@ -112,7 +125,7 @@
         self.selectedPointTotal += 100;
         for (Dice *dice in self.diceSelected) {
             if ([dice.currentRoll intValue] == 5) {
-                dice.currentRoll = @1;
+//                dice.currentRoll = @1;
                 [self.diceContainer addObject:dice];
                 [self.diceSelected removeObject:dice];
                 break;
@@ -120,41 +133,61 @@
         }
         [self checkSelectedDice];
     //check for occurence of number 1
-    }else if ([[countOfOccurences objectForKey:@1] intValue] == 1){
+    }else if ([[countOfOccurences objectForKey:@1] intValue] == 1 || [[countOfOccurences objectForKey:@1] intValue] == 2){
         self.selectedPointTotal += 100;
         [self shiftSingleOccurence:1];
     //check for occurence of number 5
     }else if ([[countOfOccurences objectForKey:@5] intValue] == 1){
-        self.selectedPointTotal += 50;
-        [self shiftSingleOccurence:5];
+        BOOL fiveExists = NO;
+        for (Dice *dice in self.diceContainer) {
+            if ([dice.currentRoll intValue] == 5) {
+                fiveExists = YES;
+            }
+        }
+        if (!fiveExists) {
+            self.selectedPointTotal += 50;
+            [self shiftSingleOccurence:5];
+        }else {
+            return YES;
+        }
+        
     //check if selected array is empty to stop recursion
     }if (self.diceSelected.count == 0){
         return YES;
-    }else {
-         return NO;
     }
-    return YES;
+    return NO;
 }
 
 -(void) shiftSingleOccurence:(int)number {
+    NSMutableArray *diceToRemove = [NSMutableArray new];
     for (Dice *dice in self.diceSelected) {
         if ([dice.currentRoll intValue] == number) {
-            [self.diceSelected removeObject:dice];
+            [diceToRemove addObject:dice];
             [self.diceContainer addObject:dice];
-            [self checkSelectedDice];
+            if ([dice.currentRoll intValue] == 1) {
+                break;
+            }
         }
     }
+    for (Dice *dice in diceToRemove) {
+        [self.diceSelected removeObject:dice];
+    }
+    [self checkSelectedDice];
 }
 
 -(void) shiftOccurencesOfNumber:(NSNumber *)number :(NSDictionary *)countOfOccurences{
+    NSMutableArray *diceToRemove = [NSMutableArray new];
     NSArray *keys = [countOfOccurences allKeysForObject:number];
     for (Dice *dice in self.diceSelected) {
         if (dice.currentRoll == keys[0]) {
             [self.diceContainer addObject:dice];
-            [self.diceSelected removeObject:dice];
-            [self checkSelectedDice];
+            [diceToRemove addObject:dice];
         }
     }
+    for (Dice *dice in diceToRemove) {
+        [self.diceSelected removeObject:dice];
+    }
+    [self checkSelectedDice];
 }
 
 

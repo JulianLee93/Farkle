@@ -55,8 +55,8 @@
 
 - (IBAction)onRollButtonTapped:(UIButton *)sender {
     
-    for (int i = 0; i<self.game.diceToBeRolled.count; i++) {
-        Dice *currentDice = [self.game.diceToBeRolled objectAtIndex:i];
+    for (int i = 0; i<self.game.allDice.count; i++) {
+        Dice *currentDice = [self.game.allDice objectAtIndex:i];
         [currentDice rollSelf];
        
         NSMutableString *imageName = [NSMutableString stringWithFormat:@"%@", currentDice.currentRoll];
@@ -67,13 +67,24 @@
         currentImage.image = [UIImage imageNamed:imageName];
     }
     
+    //TODO implement dice accepted on bank
+//    self.game.diceContainer = [NSMutableArray new];
+//    self.game.diceSelected = [NSMutableArray new];
+//    self.game.diceAccepted = [NSMutableArray new];
+    for (Dice *dice in self.game.allDice) {
+        dice.selected = NO;
+    }
+    
 }
 
 - (IBAction)onImageViewTapped:(UITapGestureRecognizer *)sender {
     
 //    NSLog(@"%d", sender.view.tag);
-    BOOL validGame = [self.game selectDice:(NSInteger *)sender.view.tag];
+    BOOL validGame = [self.game selectDice:(NSUInteger *)sender.view.tag];
     NSLog(@"%i", self.game.selectedPointTotal);
+    NSLog(@" dice selected : %@", self.game.diceSelected);
+    NSLog(@" dice container : %@", self.game.diceContainer);
+    NSLog(@" dice to be rolled : %@", self.game.diceToBeRolled);
     
 }
 
