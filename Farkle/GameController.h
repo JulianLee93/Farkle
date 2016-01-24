@@ -33,7 +33,10 @@
 @property int selectedPointTotal;
 @property int turnPointTotal;
 
--(instancetype)initWithPlayerCount:(NSUInteger) playerCount;
+-(instancetype)initWithPlayersArray:(NSMutableArray *)playersArray;
 -(BOOL) selectDice:(NSUInteger)diceIndex;
+-(void) acceptSelected;
+-(int) updatePoints;
+-(void) playerTurnDone;
 
 @end

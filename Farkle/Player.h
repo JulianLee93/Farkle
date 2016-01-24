@@ -10,7 +10,7 @@
 
 @interface Player : NSObject
 
-@property NSNumber *points;
+@property int points;
 @property NSString *name;
 
 - (instancetype)initWithName:(NSString *)name;

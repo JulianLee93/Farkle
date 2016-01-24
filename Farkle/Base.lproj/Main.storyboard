@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -488,12 +488,32 @@
                                     <constraint firstAttribute="width" constant="173" id="fMb-Iv-boh"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GamePlayerCell" id="Ywm-QU-ivy">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GamePlayerCell" textLabel="V3Z-OC-iBz" detailTextLabel="vec-Dg-lFt" style="IBUITableViewCellStyleSubtitle" id="Ywm-QU-ivy">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ywm-QU-ivy" id="SIH-KW-Zgz">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V3Z-OC-iBz">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vec-Dg-lFt">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -547,10 +567,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Lk-WI-qwb">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="onDoneButtonPressed:" destination="pQW-cR-E6Z" eventType="touchUpInside" id="piq-2h-gLV"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1Q-jS-bz4">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <state key="normal" title="bank"/>
+                                        <connections>
+                                            <action selector="onBankButtonPressed:" destination="pQW-cR-E6Z" eventType="touchUpInside" id="9zX-PB-iya"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cY3-35-chx">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -603,6 +629,13 @@
                                 <exclude reference="byN-3r-s7L"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="0gx-x8-oNu"/>
+                                <exclude reference="Sub-VN-NdZ"/>
+                                <exclude reference="hfN-Z5-kbg"/>
+                                <exclude reference="PZU-57-n23"/>
+                                <exclude reference="JlL-4N-A0i"/>
+                                <exclude reference="gIw-3G-uz3"/>
+                                <exclude reference="tmL-9c-8db"/>
                                 <exclude reference="YMP-UK-HaE"/>
                                 <exclude reference="a7R-wC-0cc"/>
                                 <exclude reference="uVy-Yp-RNy"/>
@@ -611,13 +644,6 @@
                                 <exclude reference="w5q-zm-kr1"/>
                                 <exclude reference="bzN-kT-hfl"/>
                                 <exclude reference="gtT-d2-Rlk"/>
-                                <exclude reference="PZU-57-n23"/>
-                                <exclude reference="JlL-4N-A0i"/>
-                                <exclude reference="gIw-3G-uz3"/>
-                                <exclude reference="tmL-9c-8db"/>
-                                <exclude reference="0gx-x8-oNu"/>
-                                <exclude reference="Sub-VN-NdZ"/>
-                                <exclude reference="hfN-Z5-kbg"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -630,6 +656,13 @@
                                 <include reference="byN-3r-s7L"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="0gx-x8-oNu"/>
+                                <include reference="Sub-VN-NdZ"/>
+                                <include reference="hfN-Z5-kbg"/>
+                                <include reference="PZU-57-n23"/>
+                                <include reference="JlL-4N-A0i"/>
+                                <include reference="gIw-3G-uz3"/>
+                                <include reference="tmL-9c-8db"/>
                                 <include reference="YMP-UK-HaE"/>
                                 <include reference="a7R-wC-0cc"/>
                                 <include reference="uVy-Yp-RNy"/>
@@ -638,17 +671,11 @@
                                 <include reference="w5q-zm-kr1"/>
                                 <include reference="bzN-kT-hfl"/>
                                 <include reference="gtT-d2-Rlk"/>
-                                <include reference="PZU-57-n23"/>
-                                <include reference="JlL-4N-A0i"/>
-                                <include reference="gIw-3G-uz3"/>
-                                <include reference="tmL-9c-8db"/>
-                                <include reference="0gx-x8-oNu"/>
-                                <include reference="Sub-VN-NdZ"/>
-                                <include reference="hfN-Z5-kbg"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="bankButton" destination="S1Q-jS-bz4" id="Haj-iy-0a3"/>
                         <outlet property="d1" destination="MwX-Ci-rcg" id="5hK-Np-ioW"/>
                         <outlet property="d2" destination="MGl-Sr-KEZ" id="gfm-Pl-ERK"/>
                         <outlet property="d3" destination="7IE-az-CYK" id="QLg-Xn-vg6"/>
@@ -656,6 +683,8 @@
                         <outlet property="d5" destination="ELs-Fi-Fcp" id="yjg-V0-VZ4"/>
                         <outlet property="d6" destination="yYD-D9-LOy" id="rt0-JG-x9g"/>
                         <outlet property="gameTableView" destination="dA0-UQ-UYQ" id="6SU-8h-089"/>
+                        <outlet property="pointsLabel" destination="pJ2-Mt-FJS" id="laT-Zp-tly"/>
+                        <outlet property="tableView" destination="dA0-UQ-UYQ" id="5hg-24-fo0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RXk-EP-mff" userLabel="First Responder" sceneMemberID="firstResponder"/>

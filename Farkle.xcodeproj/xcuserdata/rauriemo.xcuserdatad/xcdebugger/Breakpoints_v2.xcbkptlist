@@ -9,29 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Farkle/GameViewController.m"
-            timestampString = "475303510.519853"
+            filePath = "Farkle/GameController.m"
+            timestampString = "475329439.943897"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "-onImageViewTapped:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Farkle/GameViewController.m"
-            timestampString = "475305275.191844"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "-onRollButtonTapped:"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "-checkForValidGame:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
