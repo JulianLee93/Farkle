@@ -44,6 +44,11 @@
     }
     self.bankButton.enabled = NO;
     
+    // make dice hidden on load
+    for (UIImageView *image in self.diceButtonsArray) {
+        image.hidden = YES;
+    }
+    
 }
 
 
@@ -135,6 +140,11 @@
     self.game.diceAccepted = [NSMutableArray new];
     self.game.diceContainer = [NSMutableArray new];
     self.game.diceSelected = [NSMutableArray new];
+    
+    //make all dice hidden on end turn
+    for (UIImageView *image in self.diceButtonsArray) {
+        image.hidden = YES;
+    }
     
 }
 
