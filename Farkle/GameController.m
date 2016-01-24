@@ -121,51 +121,14 @@
             self.selectedPointTotal += [roll[0] intValue] * 100;
         }
         [self shiftOccurencesOfNumber:@3 :countOfOccurences ];
-    //check for pair of 5
-//    }else if ([[countOfOccurences objectForKey:@5] intValue] == 2){
-//        self.selectedPointTotal += 100;
-//        NSMutableArray *diceToBeRemoved = [NSMutableArray new];
-//        for (Dice *dice in self.diceSelected) {
-//            if ([dice.currentRoll intValue] == 5) {
-//                [self.diceContainer addObject:dice];
-//                [diceToBeRemoved addObject:dice];
-//                break;
-//            }
-//        }
-//        for (Dice *dice in diceToBeRemoved) {
-//            [self.diceSelected removeObject:dice];
-//        }
-//        [self checkSelectedDice];
-//        return YES;
     //check for occurence of number 1
     }else if ([[countOfOccurences objectForKey:@1] intValue] == 1 || [[countOfOccurences objectForKey:@1] intValue] == 2){
         self.selectedPointTotal += 100;
         [self shiftSingleOccurence:1];
     //check for occurence of number 5
     }else if ([[countOfOccurences objectForKey:@5] intValue] > 0){
-        BOOL fiveExists = NO;
-        for (Dice *dice in self.diceContainer) {
-            if ([dice.currentRoll intValue] == 5) {
-                fiveExists = YES;
-            }
-        }
-        if (!fiveExists) {
-            self.selectedPointTotal += 50;
-            [self shiftSingleOccurence:5];
-        }else {
-            self.selectedPointTotal +=50;
-            NSMutableArray *diceToRemove = [NSMutableArray new];
-            for (Dice *dice in self.diceSelected) {
-                if ([dice.currentRoll intValue] == 5) {
-                    [self.diceToBeRolled addObject:dice];
-                    [diceToRemove addObject:dice];
-                }
-            }
-            for (Dice *dice in diceToRemove) {
-                [self.diceSelected removeObject:dice];
-            }
-            return YES;
-        }
+        self.selectedPointTotal +=50;
+        [self shiftSingleOccurence:5];
     //check if selected array is empty to stop recursion
     }if (self.diceSelected.count == 0 && self.diceContainer.count != 0){
         return YES;
@@ -204,6 +167,28 @@
 }
 
 -(void) acceptSelected {
+    //leaves die on table if pair of 5s
+    int fiveCount = 0;
+    for (Dice *dice in self.diceSelected) {
+        if ([dice.currentRoll intValue] == 5) {
+            fiveCount += 1;
+        }
+    }
+    if (fiveCount == 2) {
+        NSMutableArray *toBeRemoved = [NSMutableArray new];
+        for (Dice *dice in self.diceSelected) {
+            if ([dice.currentRoll intValue] == 5) {
+                [self.diceToBeRolled addObject:dice];
+                [toBeRemoved addObject:dice];
+                break;
+            }
+        }
+        for (Dice *dice in toBeRemoved) {
+            [self.diceSelected removeObject:dice];
+        }
+    }
+    
+    
     for (Dice *dice in self.diceSelected) {
         [self.diceAccepted addObject:dice];
     }

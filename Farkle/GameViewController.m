@@ -30,8 +30,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-
-
 @end
 
 @implementation GameViewController
@@ -52,6 +50,18 @@
 
 
 - (IBAction)onRollButtonTapped:(UIButton *)sender {
+    //handle roll if all are used
+    BOOL allHidden = YES;
+    for (UIImageView *image in self.diceButtonsArray) {
+        if (image.hidden == NO) {
+            allHidden = NO;
+        }
+    }
+    if (allHidden) {
+        for (UIImageView *image in self.diceButtonsArray) {
+            image.hidden = NO;
+        }
+    }
     
     for (int i = 0; i<self.game.allDice.count; i++) {
         Dice *currentDice = [self.game.allDice objectAtIndex:i];
@@ -63,10 +73,6 @@
         UIImageView *currentImage = self.diceButtonsArray[i];
         
         currentImage.image = [UIImage imageNamed:imageName];
-    }
-
-    for (Dice *dice in self.game.allDice) {
-        dice.selected = NO;
     }
     
 }
