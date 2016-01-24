@@ -388,16 +388,6 @@
                                             <outletCollection property="gestureRecognizers" destination="yAk-eh-yPS" appends="YES" id="42h-s6-yOj"/>
                                         </connections>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="MGl-Sr-KEZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <gestureRecognizers/>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="227" y="32" width="114" height="104"/>
-                                        </variation>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="oSA-u2-G09" appends="YES" id="F0o-1B-LiN"/>
-                                        </connections>
-                                    </imageView>
                                     <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="7IE-az-CYK">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <gestureRecognizers/>
@@ -438,6 +428,16 @@
                                             <outletCollection property="gestureRecognizers" destination="5gw-hH-DqV" appends="YES" id="YAk-zA-PLC"/>
                                         </connections>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="MGl-Sr-KEZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <gestureRecognizers/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="227" y="32" width="114" height="104"/>
+                                        </variation>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="oSA-u2-G09" appends="YES" id="F0o-1B-LiN"/>
+                                        </connections>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -450,11 +450,11 @@
                                     <mask key="subviews">
                                         <exclude reference="0ZO-uu-oOD"/>
                                         <exclude reference="MwX-Ci-rcg"/>
-                                        <exclude reference="MGl-Sr-KEZ"/>
                                         <exclude reference="7IE-az-CYK"/>
                                         <exclude reference="eWA-b1-6qO"/>
                                         <exclude reference="ELs-Fi-Fcp"/>
                                         <exclude reference="yYD-D9-LOy"/>
+                                        <exclude reference="MGl-Sr-KEZ"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="B2c-Jl-YPk"/>
@@ -467,11 +467,11 @@
                                     <mask key="subviews">
                                         <include reference="0ZO-uu-oOD"/>
                                         <include reference="MwX-Ci-rcg"/>
-                                        <include reference="MGl-Sr-KEZ"/>
                                         <include reference="7IE-az-CYK"/>
                                         <include reference="eWA-b1-6qO"/>
                                         <include reference="ELs-Fi-Fcp"/>
                                         <include reference="yYD-D9-LOy"/>
+                                        <include reference="MGl-Sr-KEZ"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="B2c-Jl-YPk"/>
