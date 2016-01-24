@@ -63,6 +63,11 @@
         }
     }
     
+    for (Dice *dice in self.game.allDice) {
+        dice.selected = NO;
+    }
+    
+    
     for (int i = 0; i<self.game.allDice.count; i++) {
         Dice *currentDice = [self.game.allDice objectAtIndex:i];
         [currentDice rollSelf];
@@ -81,10 +86,11 @@
     
 //    NSLog(@"%d", sender.view.tag);
     BOOL validGame = [self.game selectDice:(NSUInteger)sender.view.tag];
-//    NSLog(@"%i", self.game.selectedPointTotal);
-//    NSLog(@" dice selected : %@", self.game.diceSelected);
-//    NSLog(@" dice container : %@", self.game.diceContainer);
-//    NSLog(@" dice to be rolled : %@", self.game.diceToBeRolled);
+    NSLog(@"%i", self.game.selectedPointTotal);
+    NSLog(@" dice selected : %@", self.game.diceSelected);
+    NSLog(@" dice container : %@", self.game.diceContainer);
+    NSLog(@" dice to be rolled : %@", self.game.diceToBeRolled);
+    NSLog(@" dice accepted : %@", self.game.diceAccepted);
     
     if (validGame) {
         self.bankButton.enabled = YES;
@@ -120,6 +126,15 @@
         dice.selected = NO;
     }
     self.pointsLabel.text = @"0";
+    
+    self.game.diceToBeRolled = [NSMutableArray new];
+    for (Dice *dice in self.game.allDice) {
+        [self.game.diceToBeRolled addObject:dice];
+    }
+    
+    self.game.diceAccepted = [NSMutableArray new];
+    self.game.diceContainer = [NSMutableArray new];
+    self.game.diceSelected = [NSMutableArray new];
     
 }
 
