@@ -10,6 +10,14 @@
 
 @implementation Dice
 
+-(instancetype)init{
+    self = [super init];
+    
+    self.selected = NO;
+    
+    return self;
+}
+
 -(void) rollSelf{
     int roll = arc4random_uniform(6);
     self.currentRoll = [NSNumber numberWithInt:(roll + 1)];

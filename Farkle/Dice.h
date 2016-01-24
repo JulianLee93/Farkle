@@ -11,6 +11,7 @@
 @interface Dice : NSObject
 
 @property NSNumber *currentRoll;
+@property BOOL selected;
 
 -(void) rollSelf;
 

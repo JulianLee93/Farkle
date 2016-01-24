@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Dice.h"
+#import "Player.h"
 
 @interface GameController : NSObject
 
@@ -19,15 +20,20 @@
 @property Dice *dice6;
 
 @property NSMutableArray *diceToBeRolled;
+@property NSMutableArray *diceContainer;
 @property NSMutableArray *diceSelected;
 @property NSMutableArray *diceAccepted;
+@property NSMutableArray *allDice;
 
 @property NSNumber *numberOfPlayers;
-@property NSNumber *currentPlayer;
+@property Player *currentPlayer;
 
 @property NSMutableArray *playersArray;
 
+@property int selectedPointTotal;
+@property int turnPointTotal;
+
 -(instancetype)initWithPlayerCount:(NSUInteger) playerCount;
--(void) selectDice:(NSInteger *)diceIndex;
+-(BOOL) selectDice:(NSInteger *)diceIndex;
 
 @end

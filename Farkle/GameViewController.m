@@ -72,7 +72,8 @@
 - (IBAction)onImageViewTapped:(UITapGestureRecognizer *)sender {
     
 //    NSLog(@"%d", sender.view.tag);
-    [self.game selectDice:(NSInteger *)sender.view.tag];
+    BOOL validGame = [self.game selectDice:(NSInteger *)sender.view.tag];
+    NSLog(@"%i", self.game.selectedPointTotal);
     
 }
 

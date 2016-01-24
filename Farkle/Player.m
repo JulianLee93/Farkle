@@ -16,6 +16,7 @@
     self = [super init];
     self.name = name;
     self.points = 0;
+    
     return self;
 }
 
