@@ -25,6 +25,7 @@
 
 @property (nonatomic, weak) UIDynamicAnimator *animator;
 @property (weak, nonatomic) IBOutlet UIButton *bankButton;
+@property (weak, nonatomic) IBOutlet UIButton *rollButton;
 
 @property NSMutableArray *diceButtonsArray;
 @property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
@@ -55,7 +56,7 @@
 
 
 - (IBAction)onRollButtonTapped:(UIButton *)sender {
-    //handle roll if all are used
+    //handle roll if all are used or if new turn
     BOOL allHidden = YES;
     for (UIImageView *image in self.diceButtonsArray) {
         if (image.hidden == NO) {
@@ -72,7 +73,7 @@
         dice.selected = NO;
     }
     
-    
+    //populate dice images based on equivalent current roll of dice class
     for (int i = 0; i<self.game.allDice.count; i++) {
         Dice *currentDice = [self.game.allDice objectAtIndex:i];
         [currentDice rollSelf];
@@ -85,12 +86,58 @@
         currentImage.image = [UIImage imageNamed:imageName];
     }
     
+    self.rollButton.enabled = NO;
+    
+    
+    //check for farkle
+    NSMutableArray *visibleDice = [NSMutableArray new];
+    for (int i = 0; i<self.diceButtonsArray.count; i++) {
+        if ([(UIImageView *)[self.diceButtonsArray objectAtIndex:i] isHidden]  == NO) {
+            [visibleDice addObject:[self.game.allDice objectAtIndex:i]];
+        }
+    }
+    
+    BOOL notFarkled = [self.game checkForFarkle:visibleDice];
+    
+    if (notFarkled) {
+        
+        self.game.diceToBeRolled = [NSMutableArray new];
+        for (Dice *dice in self.game.allDice) {
+            [self.game.diceToBeRolled addObject:dice];
+        }
+        self.game.diceSelected = [NSMutableArray new];
+        self.game.diceContainer = [NSMutableArray new];
+        self.game.diceAccepted = [NSMutableArray new];
+        
+    }else {
+        
+        UIAlertController *farkleController = [UIAlertController alertControllerWithTitle:@"FARKLED!" message:@"no luck today" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            self.game.turnPointTotal = 0;
+            [self.game playerTurnDone];
+            self.game.diceToBeRolled = [NSMutableArray new];
+            for (Dice *dice in self.game.allDice) {
+                [self.game.diceToBeRolled addObject:dice];
+            }
+            self.game.diceSelected = [NSMutableArray new];
+            self.game.diceContainer = [NSMutableArray new];
+            self.game.diceAccepted = [NSMutableArray new];
+            [self.tableView reloadData];
+            for (UIImageView *image in self.diceButtonsArray) {
+                image.hidden = YES;
+            }
+            self.rollButton.enabled = YES;
+        }];
+        [farkleController addAction:ok];
+        [self presentViewController:farkleController animated:YES completion:nil];
+    }
+    
 }
 
 - (IBAction)onImageViewTapped:(UITapGestureRecognizer *)sender {
     
-//    NSLog(@"%d", sender.view.tag);
     BOOL validGame = [self.game selectDice:(NSUInteger)sender.view.tag];
+    
     NSLog(@"%i", self.game.selectedPointTotal);
     NSLog(@" dice selected : %@", self.game.diceSelected);
     NSLog(@" dice container : %@", self.game.diceContainer);
@@ -118,6 +165,9 @@
     int points = [self.game updatePoints];
     
     self.pointsLabel.text = [NSString stringWithFormat:@"%i", points];
+    
+    self.rollButton.enabled = YES;
+    
 }
 
 - (IBAction)onDoneButtonPressed:(UIButton *)sender {
@@ -146,6 +196,8 @@
         image.hidden = YES;
     }
     
+    self.rollButton.enabled = YES;
+    
 }
 
 #pragma mark - table view delegate methods
@@ -154,6 +206,15 @@
     UITableViewCell *playerCell = [tableView dequeueReusableCellWithIdentifier:@"GamePlayerCell"];
     playerCell.textLabel.text = [[self.playersArray objectAtIndex:indexPath.row] name];
     playerCell.detailTextLabel.text = [NSString stringWithFormat:@"%i", [[self.playersArray objectAtIndex:indexPath.row] points] ];
+    if (self.game.currentPlayer == [self.playersArray objectAtIndex:indexPath.row]) {
+        playerCell.backgroundColor = [UIColor blueColor];
+        playerCell.textLabel.textColor = [UIColor whiteColor];
+        playerCell.detailTextLabel.textColor = [UIColor whiteColor];
+    } else {
+        playerCell.backgroundColor = [UIColor whiteColor];
+        playerCell.textLabel.textColor = [UIColor blackColor];
+        playerCell.detailTextLabel.textColor = [UIColor blackColor];
+    }
     return playerCell;
 }
 

@@ -38,5 +38,7 @@
 -(void) acceptSelected;
 -(int) updatePoints;
 -(void) playerTurnDone;
+-(BOOL) checkSelectedDice;
+-(BOOL) checkForFarkle:(NSMutableArray *)visibleDice;
 
 @end

@@ -136,6 +136,57 @@
     return NO;
 }
 
+-(BOOL) checkForFarkle:(NSMutableArray *)visibleDice{
+    
+    for (Dice *dice in visibleDice) {
+        [self.diceSelected addObject: dice];
+    }
+    
+    NSMutableDictionary *countOfOccurences = [NSMutableDictionary new];
+    countOfOccurences = [NSMutableDictionary dictionaryWithObjectsAndKeys:@0, @1, @0, @2, @0, @3, @0, @4, @0, @5, @0, @6, nil];
+    for (Dice *selectedDice in self.diceSelected) {
+        NSNumber *currentOccurenceCount =[countOfOccurences objectForKey:selectedDice.currentRoll];
+        [countOfOccurences setObject:[NSNumber numberWithInt:([currentOccurenceCount intValue] + 1)] forKey:selectedDice.currentRoll];
+    }
+
+    
+    //check for 6 of a kind
+    if ([[countOfOccurences allValues] containsObject:@6]) {
+        return YES;
+        //check for 5 of a kind
+    }else if ([[countOfOccurences allValues] containsObject:@5]){
+        return YES;
+        //check for straight
+    }else if ([[countOfOccurences allKeysForObject:@1] count] == 6){
+        return YES;
+        //check for 3 pairs
+    }else if ([[countOfOccurences allKeysForObject:@2] count] == 3){
+        return YES;
+        //check for 2 triplets
+    }else if ([[countOfOccurences allKeysForObject:@3] count] == 2){
+        return YES;
+        //check for 4 of a kind and pair
+    }else if ([[countOfOccurences allKeysForObject:@4] count] == 1 && [[countOfOccurences allKeysForObject:@2] count] == 1){
+        return YES;
+        //check for 4 of a kind
+    }else if ([[countOfOccurences allKeysForObject:@4] count] == 1){
+        return YES;
+        //check for 3 of a kind
+    }else if ([[countOfOccurences allKeysForObject:@3] count] == 1){
+        return YES;
+        //check for occurence of number 1
+    }else if ([[countOfOccurences objectForKey:@1] intValue] > 0){
+        return YES;
+        //check for occurence of number 5
+    }else if ([[countOfOccurences objectForKey:@5] intValue] > 0){
+        return YES;
+        //check if selected array is empty to stop recursion
+    }if (self.diceSelected.count == 0 && self.diceContainer.count != 0){
+        return YES;
+    }
+    return NO;
+}
+
 -(void) shiftSingleOccurence:(int)number {
     NSMutableArray *diceToRemove = [NSMutableArray new];
     for (Dice *dice in self.diceSelected) {
