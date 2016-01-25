@@ -408,14 +408,14 @@
                                             <outletCollection property="gestureRecognizers" destination="vJA-0l-uOS" appends="YES" id="qTM-NU-sPE"/>
                                         </connections>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="yYD-D9-LOy">
+                                    <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="ELs-Fi-Fcp">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <gestureRecognizers/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="227" y="266" width="114" height="104"/>
+                                            <rect key="frame" x="65" y="266" width="114" height="104"/>
                                         </variation>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="5gw-hH-DqV" appends="YES" id="YAk-zA-PLC"/>
+                                            <outletCollection property="gestureRecognizers" destination="zRn-nH-7iR" appends="YES" id="7S4-Ms-d6p"/>
                                         </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="MGl-Sr-KEZ">
@@ -428,14 +428,14 @@
                                             <outletCollection property="gestureRecognizers" destination="oSA-u2-G09" appends="YES" id="F0o-1B-LiN"/>
                                         </connections>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="ELs-Fi-Fcp">
+                                    <imageView userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_dice" translatesAutoresizingMaskIntoConstraints="NO" id="yYD-D9-LOy">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <gestureRecognizers/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="65" y="266" width="114" height="104"/>
+                                            <rect key="frame" x="227" y="266" width="114" height="104"/>
                                         </variation>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="zRn-nH-7iR" appends="YES" id="7S4-Ms-d6p"/>
+                                            <outletCollection property="gestureRecognizers" destination="5gw-hH-DqV" appends="YES" id="YAk-zA-PLC"/>
                                         </connections>
                                     </imageView>
                                 </subviews>
@@ -452,9 +452,9 @@
                                         <exclude reference="MwX-Ci-rcg"/>
                                         <exclude reference="7IE-az-CYK"/>
                                         <exclude reference="eWA-b1-6qO"/>
-                                        <exclude reference="yYD-D9-LOy"/>
-                                        <exclude reference="MGl-Sr-KEZ"/>
                                         <exclude reference="ELs-Fi-Fcp"/>
+                                        <exclude reference="MGl-Sr-KEZ"/>
+                                        <exclude reference="yYD-D9-LOy"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="B2c-Jl-YPk"/>
@@ -469,9 +469,9 @@
                                         <include reference="MwX-Ci-rcg"/>
                                         <include reference="7IE-az-CYK"/>
                                         <include reference="eWA-b1-6qO"/>
-                                        <include reference="yYD-D9-LOy"/>
-                                        <include reference="MGl-Sr-KEZ"/>
                                         <include reference="ELs-Fi-Fcp"/>
+                                        <include reference="MGl-Sr-KEZ"/>
+                                        <include reference="yYD-D9-LOy"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="B2c-Jl-YPk"/>
@@ -568,21 +568,42 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Lk-WI-qwb">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <state key="normal" title="Done"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.32000000000000001" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="disabled">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="onDoneButtonPressed:" destination="pQW-cR-E6Z" eventType="touchUpInside" id="piq-2h-gLV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1Q-jS-bz4">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <state key="normal" title="bank"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.32000000000000001" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                        <state key="normal" title="bank">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="disabled">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="onBankButtonPressed:" destination="pQW-cR-E6Z" eventType="touchUpInside" id="9zX-PB-iya"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cY3-35-chx">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <state key="normal" title="roll"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.32000000000000001" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                        <state key="normal" title="roll">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="disabled">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="onRollButtonTapped:" destination="pQW-cR-E6Z" eventType="touchUpInside" id="Gmi-WD-UJX"/>
                                         </connections>
@@ -684,6 +705,7 @@
                         <outlet property="d4" destination="eWA-b1-6qO" id="EhS-xE-LMW"/>
                         <outlet property="d5" destination="ELs-Fi-Fcp" id="yjg-V0-VZ4"/>
                         <outlet property="d6" destination="yYD-D9-LOy" id="rt0-JG-x9g"/>
+                        <outlet property="doneButton" destination="3Lk-WI-qwb" id="7Gz-rb-kj5"/>
                         <outlet property="gameTableView" destination="dA0-UQ-UYQ" id="6SU-8h-089"/>
                         <outlet property="pointsLabel" destination="pJ2-Mt-FJS" id="laT-Zp-tly"/>
                         <outlet property="rollButton" destination="cY3-35-chx" id="aIP-2e-vOa"/>

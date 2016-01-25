@@ -24,9 +24,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *d5;
 @property (weak, nonatomic) IBOutlet UIImageView *d6;
 
-@property (nonatomic, weak) UIDynamicAnimator *animator;
+@property BOOL hasBanked;
+
 @property (weak, nonatomic) IBOutlet UIButton *bankButton;
 @property (weak, nonatomic) IBOutlet UIButton *rollButton;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
 @property NSMutableArray *diceButtonsArray;
 @property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
@@ -39,12 +41,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.hasBanked = NO;
     self.game = [[GameController alloc] initWithPlayersArray:self.playersArray];
     self.diceButtonsArray = [NSMutableArray arrayWithObjects:self.d1, self.d2, self.d3, self.d4, self.d5, self.d6, nil];
     for (UIImageView *imageView in self.diceButtonsArray) {
         imageView.userInteractionEnabled = YES;
     }
     self.bankButton.enabled = NO;
+    self.doneButton.enabled = NO;
+    
     
     // make dice hidden on load
     for (UIImageView *image in self.diceButtonsArray) {
@@ -58,15 +63,19 @@
 
 - (IBAction)onRollButtonTapped:(UIButton *)sender {
     //handle roll if all are used or if new turn
+    self.hasBanked = NO;
     BOOL allHidden = YES;
     for (UIImageView *image in self.diceButtonsArray) {
         if (image.hidden == NO) {
             allHidden = NO;
+            image.highlighted = NO;
+
         }
     }
     if (allHidden) {
         for (UIImageView *image in self.diceButtonsArray) {
             image.hidden = NO;
+            image.highlighted = NO;
         }
     }
     
@@ -135,47 +144,40 @@
         [farkleController addAction:ok];
         [self presentViewController:farkleController animated:YES completion:nil];
     }
-    
+    self.doneButton.enabled = NO;
 }
 
+//  On dice image clicked, run this method
 - (IBAction)onImageViewTapped:(UITapGestureRecognizer *)sender {
     
-//    UIImageView *diceImageSelected = [self.diceButtonsArray objectAtIndex:(NSUInteger)sender.view.tag - 1];
-//    diceImageSelected.image = [self inverseColor:diceImageSelected.image];
-    
-    UIImageView *diceImageSelected = [self.diceButtonsArray objectAtIndex:(NSUInteger)sender.view.tag - 1];
-    if (diceImageSelected.highlighted) {
-        diceImageSelected.highlighted = false;
-    } else {
-        diceImageSelected.highlighted = true;
+    if (!self.hasBanked) {
+        UIImageView *diceImageSelected = [self.diceButtonsArray objectAtIndex:(NSUInteger)sender.view.tag - 1];
+        if (diceImageSelected.highlighted) {
+            diceImageSelected.highlighted = false;
+        } else {
+            diceImageSelected.highlighted = true;
+        }
+        
+        BOOL validGame = [self.game selectDice:(NSUInteger)sender.view.tag];
+        
+        if (validGame) {
+            self.bankButton.enabled = YES;
+        }else {
+            self.bankButton.enabled = NO;
+        }
+        
+        self.pointsLabel.text = [NSString stringWithFormat:@"%i", self.game.turnPointTotal + self.game.selectedPointTotal];
+        //    NSLog(@"%i", self.game.selectedPointTotal);
+        //    NSLog(@" dice selected : %@", self.game.diceSelected);
+        //    NSLog(@" dice container : %@", self.game.diceContainer);
+        //    NSLog(@" dice to be rolled : %@", self.game.diceToBeRolled);
+        //    NSLog(@" dice accepted : %@", self.game.diceAccepted);
     }
-    
-    BOOL validGame = [self.game selectDice:(NSUInteger)sender.view.tag];
-    
-    if (validGame) {
-        self.bankButton.enabled = YES;
-    }else {
-        self.bankButton.enabled = NO;
-    }
-    
-    self.pointsLabel.text = [NSString stringWithFormat:@"%i", self.game.turnPointTotal + self.game.selectedPointTotal];
-    //    NSLog(@"%i", self.game.selectedPointTotal);
-    //    NSLog(@" dice selected : %@", self.game.diceSelected);
-    //    NSLog(@" dice container : %@", self.game.diceContainer);
-    //    NSLog(@" dice to be rolled : %@", self.game.diceToBeRolled);
-    //    NSLog(@" dice accepted : %@", self.game.diceAccepted);
 }
 
-//- (UIImage *)inverseColor:(UIImage *)image
-//{
-//    CIImage *coreImage = [CIImage imageWithCGImage:image.CGImage];
-//    CIFilter *filter = [CIFilter filterWithName:@"CIColorInvert"];
-//    [filter setValue:coreImage forKey:kCIInputImageKey];
-//    CIImage *result = [filter valueForKey:kCIOutputImageKey];
-//    return [UIImage imageWithCIImage:result];
-//}
 
 - (IBAction)onBankButtonPressed:(UIButton *)sender {
+    
     [self.game acceptSelected];
     for  (int i =0; i<self.game.allDice.count; i++) {
         if ([[self.game.allDice objectAtIndex:i] selected] == YES && [self.game.diceAccepted containsObject:[self.game.allDice objectAtIndex:i]]) {
@@ -183,11 +185,19 @@
             currentImage.hidden = YES;
         }
     }
+    
+    for (UIImageView *image in self.diceButtonsArray) {
+        image.highlighted = NO;
+    }
+    
     int points = [self.game updatePoints];
     
     self.pointsLabel.text = [NSString stringWithFormat:@"%i", points];
     
     self.rollButton.enabled = YES;
+    
+    self.hasBanked = YES;
+    self.doneButton.enabled = YES;
     
 }
 
