@@ -85,6 +85,8 @@
         UIImageView *currentImage = self.diceButtonsArray[i];
         
         currentImage.image = [UIImage imageNamed:imageName];
+        [imageName appendString:@"_selected"];
+        currentImage.highlightedImage = [UIImage imageNamed:imageName];
     }
     
     self.rollButton.enabled = NO;
@@ -115,6 +117,7 @@
         UIAlertController *farkleController = [UIAlertController alertControllerWithTitle:@"FARKLED!" message:@"no luck today" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             self.game.turnPointTotal = 0;
+            self.pointsLabel.text = @"0";
             [self.game playerTurnDone];
             self.game.diceToBeRolled = [NSMutableArray new];
             for (Dice *dice in self.game.allDice) {
@@ -137,8 +140,15 @@
 
 - (IBAction)onImageViewTapped:(UITapGestureRecognizer *)sender {
     
+//    UIImageView *diceImageSelected = [self.diceButtonsArray objectAtIndex:(NSUInteger)sender.view.tag - 1];
+//    diceImageSelected.image = [self inverseColor:diceImageSelected.image];
+    
     UIImageView *diceImageSelected = [self.diceButtonsArray objectAtIndex:(NSUInteger)sender.view.tag - 1];
-    diceImageSelected.image = [self inverseColor:diceImageSelected.image];
+    if (diceImageSelected.highlighted) {
+        diceImageSelected.highlighted = false;
+    } else {
+        diceImageSelected.highlighted = true;
+    }
     
     BOOL validGame = [self.game selectDice:(NSUInteger)sender.view.tag];
     
@@ -156,14 +166,14 @@
     //    NSLog(@" dice accepted : %@", self.game.diceAccepted);
 }
 
-- (UIImage *)inverseColor:(UIImage *)image
-{
-    CIImage *coreImage = [CIImage imageWithCGImage:image.CGImage];
-    CIFilter *filter = [CIFilter filterWithName:@"CIColorInvert"];
-    [filter setValue:coreImage forKey:kCIInputImageKey];
-    CIImage *result = [filter valueForKey:kCIOutputImageKey];
-    return [UIImage imageWithCIImage:result];
-}
+//- (UIImage *)inverseColor:(UIImage *)image
+//{
+//    CIImage *coreImage = [CIImage imageWithCGImage:image.CGImage];
+//    CIFilter *filter = [CIFilter filterWithName:@"CIColorInvert"];
+//    [filter setValue:coreImage forKey:kCIInputImageKey];
+//    CIImage *result = [filter valueForKey:kCIOutputImageKey];
+//    return [UIImage imageWithCIImage:result];
+//}
 
 - (IBAction)onBankButtonPressed:(UIButton *)sender {
     [self.game acceptSelected];
