@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PlayerViewController.h"
 
 @interface GameViewController : UIViewController
 
 @property NSMutableArray *playersArray;
+@property NSUInteger gameScoreLimit;
+@property PlayerViewController *pvc;
 
 @end

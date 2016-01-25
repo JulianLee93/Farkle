@@ -12,6 +12,8 @@
 
 @interface GameController : NSObject
 
+@property NSUInteger gameScoreLimit;
+
 @property Dice *dice1;
 @property Dice *dice2;
 @property Dice *dice3;
@@ -37,7 +39,7 @@
 -(BOOL) selectDice:(NSUInteger)diceIndex;
 -(void) acceptSelected;
 -(int) updatePoints;
--(void) playerTurnDone;
+-(Player *) playerTurnDone;
 -(BOOL) checkSelectedDice;
 -(BOOL) checkForFarkle:(NSMutableArray *)visibleDice;
 

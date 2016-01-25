@@ -16,6 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *playersArray;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *gameScoreLimitValue;
 
 
 @end
@@ -90,12 +91,40 @@
 
 
 
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     GameViewController *destination = segue.destinationViewController;
     destination.playersArray = self.playersArray;
+    NSString *segmentTitle = [self.gameScoreLimitValue titleForSegmentAtIndex:self.gameScoreLimitValue.selectedSegmentIndex];
+    destination.gameScoreLimit = [segmentTitle intValue];
+    destination.pvc = self;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @end

@@ -10,6 +10,7 @@
 #import "Player.h"
 #import "GameController.h"
 #import "Dice.h"
+#import "PlayerViewController.h"
 #import <CoreImage/CoreImage.h>
 
 @interface GameViewController () <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
@@ -43,6 +44,7 @@
     [super viewDidLoad];
     self.hasBanked = NO;
     self.game = [[GameController alloc] initWithPlayersArray:self.playersArray];
+    self.game.gameScoreLimit = self.gameScoreLimit * 1000;
     self.diceButtonsArray = [NSMutableArray arrayWithObjects:self.d1, self.d2, self.d3, self.d4, self.d5, self.d6, nil];
     for (UIImageView *imageView in self.diceButtonsArray) {
         imageView.userInteractionEnabled = YES;
@@ -55,7 +57,6 @@
     for (UIImageView *image in self.diceButtonsArray) {
         image.hidden = YES;
     }
-    
 }
 
 
@@ -145,6 +146,7 @@
         [self presentViewController:farkleController animated:YES completion:nil];
     }
     self.doneButton.enabled = NO;
+    self.bankButton.enabled = NO;
 }
 
 //  On dice image clicked, run this method
@@ -203,32 +205,73 @@
 
 - (IBAction)onDoneButtonPressed:(UIButton *)sender {
     
-    [self.game playerTurnDone];
+    Player *winner = [self.game playerTurnDone];
     [self.tableView reloadData];
-    for (UIImageView *image in self.diceButtonsArray) {
-        image.hidden = NO;
+    
+    if (winner.name.length > 0) {
+        UIAlertController *winAlertController = [UIAlertController alertControllerWithTitle:@"You won!" message:[NSString stringWithFormat:@"Congratulations %@!", winner.name] preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *rematchAction = [UIAlertAction actionWithTitle:@"Rematch" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            self.hasBanked = NO;
+            for (Player *player in self.playersArray) {
+                player.points = 0;
+            }
+            self.pointsLabel.text = @"0";
+            [self.tableView reloadData];
+            self.game = [[GameController alloc] initWithPlayersArray:self.playersArray];
+            self.game.gameScoreLimit = self.gameScoreLimit;
+            self.diceButtonsArray = [NSMutableArray arrayWithObjects:self.d1, self.d2, self.d3, self.d4, self.d5, self.d6, nil];
+            for (UIImageView *imageView in self.diceButtonsArray) {
+                imageView.userInteractionEnabled = YES;
+            }
+            self.bankButton.enabled = NO;
+            self.doneButton.enabled = NO;
+            
+            
+            // make dice hidden on load
+            for (UIImageView *image in self.diceButtonsArray) {
+                image.hidden = YES;
+            }
+        }];
+        UIAlertAction *newGameAction = [UIAlertAction actionWithTitle:@"New Game" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            for (Player *player in self.playersArray) {
+                player.points = 0;
+            }
+            [self dismissViewControllerAnimated:YES completion:nil];
+            [self.navigationController popToViewController:self.pvc animated:YES];
+        }];
+        
+        [winAlertController addAction:rematchAction];
+        [winAlertController addAction:newGameAction];
+        [self presentViewController:winAlertController animated:YES completion:nil];
+        
+    }else{
+        for (UIImageView *image in self.diceButtonsArray) {
+            image.hidden = NO;
+        }
+        for (Dice *dice in self.game.allDice) {
+            dice.selected = NO;
+        }
+        self.pointsLabel.text = @"0";
+        
+        self.game.diceToBeRolled = [NSMutableArray new];
+        for (Dice *dice in self.game.allDice) {
+            [self.game.diceToBeRolled addObject:dice];
+        }
+        
+        self.game.diceAccepted = [NSMutableArray new];
+        self.game.diceContainer = [NSMutableArray new];
+        self.game.diceSelected = [NSMutableArray new];
+        
+        //make all dice hidden on end turn
+        for (UIImageView *image in self.diceButtonsArray) {
+            image.hidden = YES;
+        }
+        
+        self.rollButton.enabled = YES;
+        self.bankButton.enabled = NO;
+        self.doneButton.enabled = NO;
     }
-    for (Dice *dice in self.game.allDice) {
-        dice.selected = NO;
-    }
-    self.pointsLabel.text = @"0";
-    
-    self.game.diceToBeRolled = [NSMutableArray new];
-    for (Dice *dice in self.game.allDice) {
-        [self.game.diceToBeRolled addObject:dice];
-    }
-    
-    self.game.diceAccepted = [NSMutableArray new];
-    self.game.diceContainer = [NSMutableArray new];
-    self.game.diceSelected = [NSMutableArray new];
-    
-    //make all dice hidden on end turn
-    for (UIImageView *image in self.diceButtonsArray) {
-        image.hidden = YES;
-    }
-    
-    self.rollButton.enabled = YES;
-    
 }
 
 #pragma mark - table view delegate methods

@@ -252,8 +252,11 @@
     return  self.turnPointTotal;
 }
 
--(void) playerTurnDone{
+-(Player *) playerTurnDone{
     self.currentPlayer.points += self.turnPointTotal;
+    if (self.currentPlayer.points >= self.gameScoreLimit) {
+        return self.currentPlayer;
+    }
     self.turnPointTotal = 0;
     NSUInteger indexOfCurrentPlayer = [self.playersArray indexOfObject:self.currentPlayer];
     if (indexOfCurrentPlayer+1 >=  self.playersArray.count) {
@@ -261,7 +264,7 @@
     }else{
         self.currentPlayer = [self.playersArray objectAtIndex:indexOfCurrentPlayer+1];
     }
-    
+    return [Player new];
 }
 
 
