@@ -239,7 +239,7 @@
         }
     }
     
-    
+    //accept selected
     for (Dice *dice in self.diceSelected) {
         [self.diceAccepted addObject:dice];
     }

@@ -10,6 +10,7 @@
 #import "Player.h"
 #import "GameController.h"
 #import "Dice.h"
+#import <CoreImage/CoreImage.h>
 
 @interface GameViewController () <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 @property GameController *game;
@@ -136,13 +137,10 @@
 
 - (IBAction)onImageViewTapped:(UITapGestureRecognizer *)sender {
     
-    BOOL validGame = [self.game selectDice:(NSUInteger)sender.view.tag];
+    UIImageView *diceImageSelected = [self.diceButtonsArray objectAtIndex:(NSUInteger)sender.view.tag - 1];
+    diceImageSelected.image = [self inverseColor:diceImageSelected.image];
     
-    NSLog(@"%i", self.game.selectedPointTotal);
-    NSLog(@" dice selected : %@", self.game.diceSelected);
-    NSLog(@" dice container : %@", self.game.diceContainer);
-    NSLog(@" dice to be rolled : %@", self.game.diceToBeRolled);
-    NSLog(@" dice accepted : %@", self.game.diceAccepted);
+    BOOL validGame = [self.game selectDice:(NSUInteger)sender.view.tag];
     
     if (validGame) {
         self.bankButton.enabled = YES;
@@ -151,7 +149,20 @@
     }
     
     self.pointsLabel.text = [NSString stringWithFormat:@"%i", self.game.turnPointTotal + self.game.selectedPointTotal];
-    
+    //    NSLog(@"%i", self.game.selectedPointTotal);
+    //    NSLog(@" dice selected : %@", self.game.diceSelected);
+    //    NSLog(@" dice container : %@", self.game.diceContainer);
+    //    NSLog(@" dice to be rolled : %@", self.game.diceToBeRolled);
+    //    NSLog(@" dice accepted : %@", self.game.diceAccepted);
+}
+
+- (UIImage *)inverseColor:(UIImage *)image
+{
+    CIImage *coreImage = [CIImage imageWithCGImage:image.CGImage];
+    CIFilter *filter = [CIFilter filterWithName:@"CIColorInvert"];
+    [filter setValue:coreImage forKey:kCIInputImageKey];
+    CIImage *result = [filter valueForKey:kCIOutputImageKey];
+    return [UIImage imageWithCIImage:result];
 }
 
 - (IBAction)onBankButtonPressed:(UIButton *)sender {
