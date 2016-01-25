@@ -15,6 +15,7 @@
 @optional
 
 - (void) onAddPlayerButtonTapped:(UIButton *)sender playerName:(NSString *)name;
+-(void) onNewPlayerTextFieldUpdated:(NSString *)name;
 
 @end
 

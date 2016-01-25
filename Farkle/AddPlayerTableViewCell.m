@@ -7,12 +7,16 @@
 //
 
 #import "AddPlayerTableViewCell.h"
+@interface AddPlayerTableViewCell () <UITextFieldDelegate>
+
+@end
 
 @implementation AddPlayerTableViewCell
 
 
 - (void)awakeFromNib {
     // Initialization code
+    self.AddPlayerTextField.delegate = self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -23,6 +27,16 @@
 - (IBAction)onAddPlayerButtonTapped:(UIButton *)sender {
     [self.delegate onAddPlayerButtonTapped:sender playerName:self.AddPlayerTextField.text];
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    [self.delegate onNewPlayerTextFieldUpdated:self.AddPlayerTextField.text];
+    
+    return YES;
+}
+
 
 
 @end

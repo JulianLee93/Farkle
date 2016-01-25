@@ -80,6 +80,22 @@
     }
 }
 
+-(void) onNewPlayerTextFieldUpdated:(NSString *)name {
+    if (self.playersArray.count < 6) {
+        Player *newPlayer = [[Player alloc] initWithName:name];
+        [self.playersArray addObject:newPlayer];
+        [self.tableView reloadData];
+    }else {
+        [self.tableView reloadData];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Sorry!" message:@"Exceeded max number of players" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+    }
+
+}
+
 - (void)PlayerTableViewCellDelegate:(id)cell updatedName:(NSString *)name
 {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];

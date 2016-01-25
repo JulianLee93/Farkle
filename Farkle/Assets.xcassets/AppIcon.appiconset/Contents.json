@@ -1,63 +1,53 @@
 {
   "images" : [
     {
-      "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "pirate_chest-1.png",
+      "size" : "29x29",
       "scale" : "2x"
     },
     {
-      "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "pirate_chest.png",
+      "size" : "29x29",
       "scale" : "3x"
     },
     {
+      "idiom" : "iphone",
       "size" : "40x40",
-      "idiom" : "iphone",
-      "filename" : "pirate_chest-2.png",
       "scale" : "2x"
     },
     {
+      "idiom" : "iphone",
       "size" : "40x40",
-      "idiom" : "iphone",
-      "filename" : "pirate_chest-3.png",
       "scale" : "3x"
     },
     {
-      "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "pirate_chest-4.png",
+      "size" : "60x60",
       "scale" : "2x"
     },
     {
-      "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "pirate_chest-5.png",
+      "size" : "60x60",
       "scale" : "3x"
     },
     {
-      "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "pirate_chest-6.png",
+      "size" : "29x29",
       "scale" : "1x"
     },
     {
-      "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "pirate_chest-7.png",
+      "size" : "29x29",
       "scale" : "2x"
     },
     {
-      "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "pirate_chest-8.png",
+      "size" : "40x40",
       "scale" : "1x"
     },
     {
-      "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "pirate_chest-9.png",
+      "size" : "40x40",
       "scale" : "2x"
     },
     {
